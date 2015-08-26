@@ -8,6 +8,7 @@ namespace WeatherDataApp
 {
     public enum WeatherDataEnum
     {
-        OPEN_WEATHER_MAP
+        OPEN_WEATHER_MAP,
+        GOOGLE_WEATHER
     }
 }
