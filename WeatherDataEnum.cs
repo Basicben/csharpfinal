@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace WeatherDataApp
 {
-    public interface IWeatherDataService
+    public enum WeatherDataEnum
     {
-        WeatherData GetWeatherData(WeatherDataEnum platform);
+        OPEN_WEATHER_MAP
     }
 }

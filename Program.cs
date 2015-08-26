@@ -10,13 +10,11 @@ namespace WeatherDataApp
     {
         static void Main(string[] args)
         {
-
-            Location location = new Location(32.066158, 34.777819);
-
+            // Create Factory.
             WeatherDataServiceFactory factory = new WeatherDataServiceFactory();
-            WeatherData wd = WeatherData.GetInstance(factory.GetWeatherData(location));
+            // Get Weather Data Singleton instance.
+            WeatherData wd = WeatherData.GetInstance(factory.GetWeatherData(factory.platform));
             Console.WriteLine(wd.ToString());
-
         }
     }
 }

@@ -11,9 +11,10 @@ namespace WeatherDataApp
 
         private static WeatherData instance;
 
+        // c'tor 
         private WeatherData(WeatherData obj)
         {
-            //this.clouds.all = obj.clouds == null ? 0 : obj.clouds.all;
+            this.clouds = obj.clouds;
             this.cod = obj.cod;
             this.coord = obj.coord;
             this.dt = obj.dt;
@@ -24,7 +25,6 @@ namespace WeatherDataApp
             this.sys = obj.sys;
             this.weather = obj.weather;
             this.wind = obj.wind;
-
         }
 
         private WeatherData()
@@ -43,12 +43,14 @@ namespace WeatherDataApp
             return instance;
         }
 
+        // toString overide.
         public override string ToString()
         {
             var str = "Coord: \nLatitude : " + this.coord.lat + " Longitude : " + this.coord.lon + "\n\n" +
                 "Sys: \nIn " + this.name + "," + this.sys.country + " The sun rises at :" + this.sys.sunrise + " and sets at :" + this.sys.sunset + "\n\n" +
                 "Weather : \n";
 
+            // append weather array to string.
             for (var i = 0; i < this.weather.Length; i++)
                 str += "Description : " + this.weather[i].description + " Icon : " + this.weather[i].icon + " Id : " +this.weather[i].id + " Main : " +this.weather[i].main + "\n";
 
@@ -70,12 +72,14 @@ namespace WeatherDataApp
         public string name { get; set; }
         public int cod { get; set; }
 
+        // Coord Obj.
         public class Coord
         {
             public double lon { get; set; }
             public double lat { get; set; }
         }
 
+        // Sys obj
         public class Sys
         {
             public string country { get; set; }
@@ -83,6 +87,7 @@ namespace WeatherDataApp
             public double sunset { get; set; }
         }
 
+        // Main obj
         public class Main
         {
             public double temp { get; set; }
@@ -92,22 +97,26 @@ namespace WeatherDataApp
             public double temp_max { get; set; }
         }
 
+        // Wind obj
         public class Wind
         {
             public double speed { get; set; }
             public double deg { get; set; }
         }
 
+        // Rain obj
         public class Rain
         {
             public double _3h { get; set; }
         }
 
+        // Cloud obj
         public class Clouds
         {
             public double all { get; set; }
         }
 
+        // Weather obj
         public class Weather
         {
             public double id { get; set; }
